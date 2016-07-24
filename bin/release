@@ -4,5 +4,5 @@ cat << EOF
 addons:
 config_vars:
 default_process_types:
-   web: JMETER_HOME=/app/local/apache-jmeter-3.0 JAVA_HOME=/app/local/jdk PATH=/app/local/jdk/bin:/app/local/apache-jmeter-3.0/bin:\$PATH jmeter -n -t ExerciseWebTrader.jmx
+   web: JMETER_HOME=/app/local/apache-jmeter-3.0 JAVA_HOME=/app/local/jdk PATH=/app/local/jdk/bin:/app/local/apache-jmeter-3.0/bin:\$PATH jmeter -n -t ExcersiseWebTrader.jmx
 EOF

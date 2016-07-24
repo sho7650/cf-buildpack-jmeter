@@ -75,6 +75,7 @@ mv theApp/* $BUILD_DIR/local/
 rm -rf theApp
 
 ls $BUILD_DIR/local
+echo "Anything in jdk folder"
 ls $BUILD_DIR/local/jdk
 
 echo "Complete."
