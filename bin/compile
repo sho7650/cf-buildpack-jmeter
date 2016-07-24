@@ -76,6 +76,6 @@ rm -rf theApp
 
 ls $BUILD_DIR/local
 echo "Anything in jdk folder"
-ls $BUILD_DIR/local/jdk
+$BUILD_DIR/local/jdk/bin/java -version
 
 echo "Complete."
