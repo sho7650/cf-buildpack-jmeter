@@ -52,7 +52,7 @@ then
 fi
 
 # Explode the OpenJDK tarball to BUILD_DIR
-if [ ! -e $BUILD_DIR/local/openjdk-1.8.0_51 ]
+if [ ! -e $BUILD_DIR/local/jdk ]
 then
   echo "------> Installing JDK ($JDK)..."
   if [ ! -e $CACHE_DIR/$JDK ]
@@ -75,5 +75,6 @@ mv theApp/* $BUILD_DIR/local/
 rm -rf theApp
 
 ls $BUILD_DIR/local
+ls $BUILD_DIR/local/jdk
 
 echo "Complete."
