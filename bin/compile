@@ -11,6 +11,7 @@ CACHE_DIR=$2
 #a place to find the app before we start doing other stuff
 mkdir theApp
 ls
+ls app
 mv app/* theApp/
 echo "created theApp directory"
 #create the directories to do work in
