@@ -69,5 +69,6 @@ ls
 mv theApp/* $BUILD_DIR/local/
 rm -rf theApp
 
+ls $BUILD_DIR/local
 
 echo "Complete."
