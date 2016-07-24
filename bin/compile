@@ -52,7 +52,7 @@ then
 fi
 
 # Explode the OpenJDK tarball to BUILD_DIR
-if [ ! -e $BUILD_DIR/local/jdk ]
+if [ ! -e $BUILD_DIR/local/jdk/bin ]
 then
   echo "------> Installing JDK ($JDK)..."
   if [ ! -e $CACHE_DIR/$JDK ]
