@@ -32,6 +32,11 @@ then
   mkdir -p $BUILD_DIR/local
 fi
 
+if [ ! -d $BUILD_DIR/local/jdk ]
+then
+  mkdir -p $BUILD_DIR/local/jdk
+fi
+
 # Explode the JMETER tarball to BUILD_DIR
 if [ ! -e $BUILD_DIR/local/apache-jmeter-3.0 ]
 then
