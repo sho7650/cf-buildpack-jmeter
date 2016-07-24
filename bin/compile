@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# usage: bin/compile <build-dir> <cache-dir>
+
+# Fail fast, fail hard
+set -eo pipefail
+
+# Directories
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+#a place to find the app before we start doing other stuff
+mkdir theApp
+ls
+mv app/* theApp/
+echo "created theApp directory"
+#create the directories to do work in
+mkdir -p "$BUILD_DIR" "$CACHE_DIR"
+
+echo $RESOURCES
+ls -alrt $RESOURCES
+
+# Files
+JDK_BLOB=https://download.run.pivotal.io/openjdk-jdk/trusty/x86_64/openjdk-1.8.0_51.tar.gz
+JDK=openjdk-1.8.0_51.tar.gz
+JMETER_BLOB=http://ftp.wayne.edu/apache//jmeter/binaries/apache-jmeter-3.0.tgz
+JMETER=apache-jmeter-3.0.tgz
+
+if [ ! -d $BUILD_DIR/local ]
+then
+  mkdir -p $BUILD_DIR/local
+fi
+
+# Explode the JMETER tarball to BUILD_DIR
+if [ ! -e $BUILD_DIR/local/apache-jmeter-3.0 ]
+then
+  if [ ! -e $CACHE_DIR/$MULE ]
+  then
+    OLDPWD=$(pwd)
+    cd $CACHE_DIR && wget JMETER_BLOB
+
+    cd $OLDPWD
+  fi
+  echo "------> Installing JMETER ($JMETER)..."
+  tar -xzf $CACHE_DIR/$JMETER -C $BUILD_DIR/local
+fi
+
+# Explode the OpenJDK tarball to BUILD_DIR
+if [ ! -e $BUILD_DIR/local/openjdk-1.8.0_51 ]
+then
+  echo "------> Installing JDK ($JDK)..."
+  if [ ! -e $CACHE_DIR/$JDK ]
+  then
+    OLDPWD=$(pwd)
+    cd $CACHE_DIR && wget $JDK_BLOB
+    cd $OLDPWD
+  fi
+  tar -xzf $CACHE_DIR/$JDK -C $BUILD_DIR/local
+fi
+
+# Move the app into position
+pwd
+for f in app/*
+do
+echo $f
+done
+ls
+mv theApp/* $BUILD_DIR/local/
+rm -rf theApp
+#mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
+
+
+echo "Complete."

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# bin/release <build-dir>
+cat << EOF
+addons:
+config_vars:
+default_process_types:
+   worker: JMETER_HOME=/app/local/apache-jmeter-3.0 JAVA_HOME=/app/local/openjdk-1.8.0_51 PATH=/app/local/openjdk-1.8.0_51/bin:/app/local/apache-jmeter-3.0/bin:\$PATH jmeter -n -t ExerciseWebTrader.jmx
+EOF
