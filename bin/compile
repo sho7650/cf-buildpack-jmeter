@@ -24,7 +24,7 @@ ls -alrt $RESOURCES
 # Files
 JDK_BLOB=https://download.run.pivotal.io/openjdk-jdk/trusty/x86_64/openjdk-1.8.0_51.tar.gz
 JDK=openjdk-1.8.0_51.tar.gz
-JMETER_BLOB=http://ftp.wayne.edu/apache//jmeter/binaries/apache-jmeter-3.0.tgz
+JMETER_BLOB=http://ftp.wayne.edu/apache/jmeter/binaries/apache-jmeter-3.0.tgz
 JMETER=apache-jmeter-3.0.tgz
 
 if [ ! -d $BUILD_DIR/local ]
@@ -35,7 +35,7 @@ fi
 # Explode the JMETER tarball to BUILD_DIR
 if [ ! -e $BUILD_DIR/local/apache-jmeter-3.0 ]
 then
-  if [ ! -e $CACHE_DIR/$MULE ]
+  if [ ! -e $CACHE_DIR/$JMETER ]
   then
     OLDPWD=$(pwd)
     cd $CACHE_DIR && wget JMETER_BLOB
@@ -68,7 +68,6 @@ done
 ls
 mv theApp/* $BUILD_DIR/local/
 rm -rf theApp
-#mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
 
 
 echo "Complete."
