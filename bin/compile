@@ -10,9 +10,11 @@ CACHE_DIR=$2
 
 #a place to find the app before we start doing other stuff
 mkdir theApp
-ls
-ls app
-mv app/* theApp/
+ls $BUILD_DIR
+ls $BUILD_DIR/app
+echo post build directory
+
+mv $BUILD_DIR/app/* theApp/
 echo "created theApp directory"
 #create the directories to do work in
 mkdir -p "$BUILD_DIR" "$CACHE_DIR"
