@@ -38,7 +38,7 @@ then
   if [ ! -e $CACHE_DIR/$JMETER ]
   then
     OLDPWD=$(pwd)
-    cd $CACHE_DIR && wget JMETER_BLOB
+    cd $CACHE_DIR && wget $JMETER_BLOB
 
     cd $OLDPWD
   fi
