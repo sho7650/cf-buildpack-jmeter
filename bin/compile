@@ -8,7 +8,9 @@ set -eo pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
+echo "****ENV VARS****"
 echo $TEST_URL
+echo $LOAD_SCRIPT
 
 #a place to find the app before we start doing other stuff
 mkdir theApp
