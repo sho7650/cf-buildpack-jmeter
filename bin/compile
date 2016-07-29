@@ -11,6 +11,8 @@ CACHE_DIR=$2
 echo "****ENV VARS****"
 echo $TEST_URL
 echo $LOAD_SCRIPT
+echo "****END ENV VARS****"
+
 
 #a place to find the app before we start doing other stuff
 mkdir theApp
