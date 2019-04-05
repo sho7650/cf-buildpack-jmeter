@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 cat << EOF
-addons:
+---
 config_vars:
-default_process_types:
-   web: JMETER_HOME=/app/local/apache-jmeter-3.0 JAVA_HOME=/app/local/jdk PATH=/app/local/jdk/bin:/app/local/apache-jmeter-3.0/bin:\$PATH jmeter -n -JTEST_URL=$TEST_URL -t /app/local/$LOAD_SCRIPT
+  PATH: $PATH:/app/local/apache-jmeter-5.1.1/bin:/app/local/jdk/jdk-9.0.4/bin
+  JMETER_HOME: /app/local/apache-jmeter-5.1.1
 EOF
