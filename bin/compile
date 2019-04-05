@@ -28,10 +28,10 @@ echo $RESOURCES
 ls -alrt $RESOURCES
 
 # Files
-JDK_BLOB=https://download.run.pivotal.io/openjdk-jdk/trusty/x86_64/openjdk-1.8.0_51.tar.gz
-JDK=openjdk-1.8.0_51.tar.gz
-JMETER_BLOB=http://ftp.wayne.edu/apache/jmeter/binaries/apache-jmeter-3.0.tgz
-JMETER=apache-jmeter-3.0.tgz
+JDK_BLOB=https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_linux-x64_bin.tar.gz
+JDK=openjdk-9.0.4_linux-x64_bin.tar.gz
+JMETER_BLOB=http://ftp.tsukuba.wide.ad.jp/software/apache//jmeter/binaries/apache-jmeter-5.1.1.tgz
+JMETER=apache-jmeter-5.1.1.tgz
 
 if [ ! -d $BUILD_DIR/local ]
 then
