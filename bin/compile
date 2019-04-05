@@ -44,7 +44,7 @@ then
 fi
 
 # Explode the JMETER tarball to BUILD_DIR
-if [ ! -e $BUILD_DIR/local/apache-jmeter-3.0 ]
+if [ ! -e $BUILD_DIR/local/apache-jmeter-5.1.1 ]
 then
   if [ ! -e $CACHE_DIR/$JMETER ]
   then
@@ -82,6 +82,6 @@ rm -rf theApp
 
 ls $BUILD_DIR/local
 echo "Anything in jdk folder"
-# $BUILD_DIR/local/jdk/bin/java -version
+$BUILD_DIR/local/jdk/jdk-9.0.4/bin/java -version
 
 echo "Complete."
