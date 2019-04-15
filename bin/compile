@@ -78,9 +78,9 @@ then
 fi
 
 # Explode the siege tarball to BUILD_DIR
-if [ ! -e $BUILD_DIR/local/siege ]
+if [ ! -e $BUILD_DIR/local/siege/siege-4.0.4 ]
 then
-  echo "------> Installing JDK ($SIEGE)..."
+  echo "------> Installing SIEGE ($SIEGE)..."
   if [ ! -e $CACHE_DIR/$SIEGE ]
   then
     OLDPWD=$(pwd)
