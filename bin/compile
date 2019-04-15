@@ -87,7 +87,7 @@ then
     cd $CACHE_DIR && wget $SIEGE_BLOB
     cd $OLDPWD
   fi
-  tar -xzf $CACHE_DIR/$JDK -C $BUILD_DIR/local/siege
+  tar -xzf $CACHE_DIR/$SIEGE -C $BUILD_DIR/local/siege
 fi
 cd $BUILD_DIR/local/siege/siege-4.0.4/
 ./configure && make
