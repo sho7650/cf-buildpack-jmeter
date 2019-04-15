@@ -78,7 +78,7 @@ then
 fi
 
 # Explode the siege tarball to BUILD_DIR
-sudo apt-get install siege
+apt-get install siege
 
 # Move the app into position
 pwd
