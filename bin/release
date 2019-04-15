@@ -3,6 +3,6 @@
 cat << EOF
 ---
 config_vars:
-  PATH: $PATH:/app/local/apache-jmeter-5.1.1/bin:/app/local/jdk/jdk-9.0.4/bin
+  PATH: $PATH:/app/local/apache-jmeter-5.1.1/bin:/app/local/jdk/jdk-9.0.4/bin:/app/bin
   JMETER_HOME: /app/local/apache-jmeter-5.1.1
 EOF

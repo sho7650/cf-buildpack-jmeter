@@ -50,6 +50,16 @@ then
   mkdir -p $BUILD_DIR/local/siege
 fi
 
+if [ ! -d $HOME/bin ]
+then
+  mkdir -p $HOME/bin
+fi
+
+if [ ! -d $HOME/.siege ]
+then
+  mkdir -p $HOME/.siege
+fi
+
 # Explode the JMETER tarball to BUILD_DIR
 if [ ! -e $BUILD_DIR/local/apache-jmeter-5.1.1 ]
 then
@@ -87,11 +97,15 @@ then
     cd $CACHE_DIR && wget $SIEGE_BLOB
     cd $OLDPWD
   fi
-  tar -xvzf $CACHE_DIR/$SIEGE -C $BUILD_DIR/local/siege
+  tar -xzf $CACHE_DIR/$SIEGE -C $BUILD_DIR/local/siege
 fi
 OLDPWD=$(pwd)
 cd $BUILD_DIR/local/siege/siege-4.0.4
 ./configure && make
+cp -a ./src/siege $HOME/bin
+sh ./utiles/siege.config
+sed -i -e "s/^verbose = true/verbose = false/g" $HOME/.siege/siege.conf
+sed -i -e "s/^limit = 255/limit = 1024/g" $HOME/.siege/siege.conf
 # make install
 cd $OLDPWD
 
