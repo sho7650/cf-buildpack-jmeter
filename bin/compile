@@ -91,7 +91,7 @@ then
 fi
 cd $BUILD_DIR/local/siege/siege-4.0.4
 ./configure && make
-make install
+# make install
 
 # Move the app into position
 pwd
