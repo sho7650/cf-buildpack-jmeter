@@ -87,9 +87,9 @@ then
     cd $CACHE_DIR && wget $SIEGE_BLOB
     cd $OLDPWD
   fi
-  tar -xzf $CACHE_DIR/$SIEGE -C $BUILD_DIR/local/siege
+  tar -xvzf $CACHE_DIR/$SIEGE -C $BUILD_DIR/local/siege
 fi
-cd $BUILD_DIR/local/siege/siege-4.0.4/
+cd $BUILD_DIR/local/siege/siege-4.0.4
 ./configure && make
 make install
 
