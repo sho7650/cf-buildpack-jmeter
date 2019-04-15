@@ -89,9 +89,11 @@ then
   fi
   tar -xvzf $CACHE_DIR/$SIEGE -C $BUILD_DIR/local/siege
 fi
+OLDPWD=$(pwd)
 cd $BUILD_DIR/local/siege/siege-4.0.4
 ./configure && make
 # make install
+cd $OLDPWD
 
 # Move the app into position
 pwd
