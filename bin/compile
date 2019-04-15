@@ -103,7 +103,7 @@ OLDPWD=$(pwd)
 cd $BUILD_DIR/local/siege/siege-4.0.4
 ./configure && make
 cp -a ./src/siege $HOME/bin
-sh ./utiles/siege.config
+sh ./utils/siege.config
 sed -i -e "s/^verbose = true/verbose = false/g" $HOME/.siege/siege.conf
 sed -i -e "s/^limit = 255/limit = 1024/g" $HOME/.siege/siege.conf
 # make install
