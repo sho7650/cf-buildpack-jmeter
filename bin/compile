@@ -50,9 +50,9 @@ then
   mkdir -p $BUILD_DIR/local/siege
 fi
 
-if [ ! -d $HOME/bin ]
+if [ ! -d $BUILD_DIR/local/bin ]
 then
-  mkdir -p $HOME/bin
+  mkdir -p $BUILD_DIR/local/bin
 fi
 
 if [ ! -d $HOME/.siege ]
@@ -102,10 +102,11 @@ fi
 OLDPWD=$(pwd)
 cd $BUILD_DIR/local/siege/siege-4.0.4
 ./configure && make
-cp -a ./src/siege $HOME/bin
+cp ./src/siege $BUILD_DIR/local/bin
 sh ./utils/siege.config
 sed -i -e "s/^verbose = true/verbose = false/g" $HOME/.siege/siege.conf
 sed -i -e "s/^limit = 255/limit = 1024/g" $HOME/.siege/siege.conf
+cat $HOME/.siege/siege.conf > $BUILD_DIR/local/siege.conf
 # make install
 cd $OLDPWD
 
@@ -119,7 +120,7 @@ ls
 mv theApp/* $BUILD_DIR/local/
 rm -rf theApp
 
-ls $BUILD_DIR/local
+ls $BUILD_DIR/local/bin
 echo "Anything in jdk folder"
 $BUILD_DIR/local/jdk/jdk-9.0.4/bin/java -version
 
