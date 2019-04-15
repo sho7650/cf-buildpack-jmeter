@@ -32,8 +32,8 @@ JDK_BLOB=https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_lin
 JDK=openjdk-9.0.4_linux-x64_bin.tar.gz
 JMETER_BLOB=http://ftp.tsukuba.wide.ad.jp/software/apache//jmeter/binaries/apache-jmeter-5.1.1.tgz
 JMETER=apache-jmeter-5.1.1.tgz
-SIEGE_BLOB=http://download.joedog.org/siege/siege-3.1.4.tar.gz
-SIEGE=siege-3.1.4.tar.gz
+SIEGE_BLOB=http://download.joedog.org/siege/siege-4.0.4.tar.gz
+SIEGE=siege-4.0.4.tar.gz
 
 if [ ! -d $BUILD_DIR/local ]
 then
@@ -78,7 +78,20 @@ then
 fi
 
 # Explode the siege tarball to BUILD_DIR
-apt-get install siege
+if [ ! -e $BUILD_DIR/local/siege ]
+then
+  echo "------> Installing JDK ($SIEGE)..."
+  if [ ! -e $CACHE_DIR/$SIEGE ]
+  then
+    OLDPWD=$(pwd)
+    cd $CACHE_DIR && wget $SIEGE_BLOB
+    cd $OLDPWD
+  fi
+  tar -xzf $CACHE_DIR/$JDK -C $BUILD_DIR/local/siege
+fi
+cd $BUILD_DIR/local/siege/siege-4.0.4/
+./configure && make
+make install
 
 # Move the app into position
 pwd
