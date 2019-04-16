@@ -28,8 +28,6 @@ echo $RESOURCES
 ls -alrt $RESOURCES
 
 # Files
-JDK_BLOB=https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_linux-x64_bin.tar.gz
-JDK=openjdk-9.0.4_linux-x64_bin.tar.gz
 JMETER_BLOB=http://ftp.tsukuba.wide.ad.jp/software/apache//jmeter/binaries/apache-jmeter-5.1.1.tgz
 JMETER=apache-jmeter-5.1.1.tgz
 SIEGE_BLOB=http://download.joedog.org/siege/siege-4.0.4.tar.gz
@@ -40,10 +38,6 @@ then
   mkdir -p $BUILD_DIR/local
 fi
 
-if [ ! -d $BUILD_DIR/local/jdk ]
-then
-  mkdir -p $BUILD_DIR/local/jdk
-fi
 
 if [ ! -d $BUILD_DIR/local/siege ]
 then
@@ -72,19 +66,6 @@ then
   fi
   echo "------> Installing JMETER ($JMETER)..."
   tar -xzf $CACHE_DIR/$JMETER -C $BUILD_DIR/local
-fi
-
-# Explode the OpenJDK tarball to BUILD_DIR
-if [ ! -e $BUILD_DIR/local/jdk/bin ]
-then
-  echo "------> Installing JDK ($JDK)..."
-  if [ ! -e $CACHE_DIR/$JDK ]
-  then
-    OLDPWD=$(pwd)
-    cd $CACHE_DIR && wget $JDK_BLOB
-    cd $OLDPWD
-  fi
-  tar -xzf $CACHE_DIR/$JDK -C $BUILD_DIR/local/jdk
 fi
 
 # Explode the siege tarball to BUILD_DIR
