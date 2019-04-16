@@ -101,8 +101,4 @@ ls
 mv theApp/* $BUILD_DIR/local/
 rm -rf theApp
 
-ls $BUILD_DIR/local/bin
-echo "Anything in jdk folder"
-$BUILD_DIR/local/jdk/jdk-9.0.4/bin/java -version
-
 echo "Complete."
